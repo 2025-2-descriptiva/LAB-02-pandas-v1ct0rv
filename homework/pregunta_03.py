@@ -5,6 +5,8 @@ datos requeridos se encuentran en los archivos `tbl0.tsv`, `tbl1.tsv` y
 librerias de pandas para resolver las preguntas.
 """
 
+import pandas as pd
+
 
 def pregunta_03():
     """
@@ -21,3 +23,10 @@ def pregunta_03():
     Name: count, dtype: int64
 
     """
+    # Leer el archivo tbl0.tsv
+    df = pd.read_csv("files/input/tbl0.tsv", sep="\t")
+
+    # Agrupar por la columna 'c1' y contar los registros en cada grupo
+    conteo = df.groupby("c1").size()
+
+    return conteo
